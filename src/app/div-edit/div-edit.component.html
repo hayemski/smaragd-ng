@@ -1,0 +1,50 @@
+<div class="container ">
+    <div class="form-check">  
+        <div class="row">  
+          <div class="row border border-light rounded p-2" *ngFor="let item of apiValues;">  
+            <img src="assets/img/{{item.slikaAlbuma}}"  onerror="this.src='assets/img/No_Cover.jpg'" class="slika p-1">
+            <div class="col-sm">
+                <div class="row p-1">
+                    <span class="col-sm">Naziv albuma: </span> 
+                    <input id="nazivAlbuma" name="nazivAlbuma" type="text" [(ngModel)]="item.nazivAlbuma"  [attr.disabled]="izmena ? null : true" class="col-sm-8 form-control" required minlength="4"  #nazivAlbuma="ngModel"/>
+                </div>
+                <div class="row p-1 form-group">
+                    <span class="col-sm control-label">Naziv umetnika: </span>
+                    <select class="form-control" [(ngModel)]="item.idUmetnik" required  [attr.disabled]="izmena ? null : true" class="col-sm-8 form-control"> 
+                        <option  [value]="0" >...</option>
+                        <option  *ngFor="let emp of sifarnici[0]" [value]="emp.idUmetnik" [innerHTML]="emp.nazivUmetnika" ></option>
+                     </select>
+                </div>
+                <div class="row p-1">
+                    <span class="col-sm">Žanr: </span> 
+                    <select class="form-control" [(ngModel)]="item.idZanra" required  [attr.disabled]="izmena ? null : true" class="col-sm-8 form-control"> 
+                        <option   [value]="0" >...</option>
+                        <option  *ngFor="let emp of sifarnici[1]" [value]="emp.idZanra" [innerHTML]="emp.nazivZanra" ></option>
+                     </select>                
+                </div>
+                <div class="row p-1">
+                    <span class="col-sm">Godina: </span> 
+                    <select [(ngModel)]="item.godina" class="col-sm-8 form-control" [attr.disabled]="izmena ? null : true" required>
+                        <option   [value]="0" >...</option>
+                        <option *ngFor="let year of years" [value]="year" [innerHTML]=" year "></option> 
+                    </select>
+                </div>
+                <div class="row p-1">
+                    <span class="col-sm">Slika: </span> 
+                    <input id="nazivAlbuma" name="nazivAlbuma" type="text" [(ngModel)]="item.slikaAlbuma"  [attr.disabled]="true" class="col-sm-8 form-control" required minlength="4"  #nazivAlbuma="ngModel"/>
+                </div>
+                
+                <app-upload *ngIf="izmena"></app-upload>
+                
+            </div>   
+            <button type="button" *ngIf="!izmena" value="" (click)="izmenaMod()"  class="row btn btn-info mr-2 mt-3">Dozvoli izmene</button>   
+            <div class="row mt-3" *ngIf="izmena">
+                <button type="button" value="" (click)="vratiNazad()"  class="btn btn-dark col-sm mr-2">Nazad</button>   
+                <button type="button" value="" (click)="snimiAlbum()"    class="btn btn-success col-sm ml-2">Izmeni</button>   
+                <button type="button" value="" (click)="snimiAlbum('y')"    class="btn btn-danger col-1 ml-2">Obriši</button>   
+            </div>
+          </div>  
+        </div>  
+      </div>  
+</div>
+

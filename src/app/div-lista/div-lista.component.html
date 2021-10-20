@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="form-check">
+    <button #dodajDugme type="button" value="0"  (click)="izmenaAlbum(dodajDugme.value)" class="btn btn-dark col-md-12 mb-3">Dodaj novi album</button>
+    <div class="row">
+      <div class="col-md-6 row border border-light rounded p-2" *ngFor="let item of apiValues[0];">
+        <img src="assets/img/{{item.slikaAlbuma}}"
+          onerror="this.src='assets/img/No_Cover.jpg'" class="slika p-1">
+        <div class="col-sm">
+          <div class="">Naziv umetnika: {{item.nazivUmetnika}}</div>
+          <div class="">Naziv albuma: {{item.nazivAlbuma}}</div>
+          <div class="">Zanr: {{item.nazivZanra}}</div>
+          <div class="">Godina: {{item.godina}}</div>
+          <button #izmeniDug type="button" value="{{item.idAlbuma}}"
+            (click)="izmenaAlbum(izmeniDug.value)" class="btn btn-dark bot-1">Izmeni</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

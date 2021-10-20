@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+}
+
+.modalCont{
+    padding:2em;
+}
+
+.move-left {
+    width: auto;
+    box-shadow: none;
+  }
+
+  .auto-width {
+    width: auto;
+  }
+
+  .w-7{
+      width: 7%;
+  }
+
+  .w-100{
+      width: 100%;
+  }
+
+ 

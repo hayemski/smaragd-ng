@@ -1,0 +1,10 @@
+.slika{
+    width: 150px;
+    height: 150px;
+}
+
+.bot-1{
+    position: absolute;
+    bottom: 1em;
+    right: 2em;
+}

@@ -1,0 +1,46 @@
+
+<div class="container" style="margin-top: 70px;">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Proizvod</th>
+          <th>Težina</th>
+          <th>Tip</th>
+          <th>Cena</th>
+          <!-- <th>Actions</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let podatakJ of podaci ">
+  
+          <td class="align-middle">{{ podatakJ.id }}</td>
+          <td class="align-middle"> {{ podatakJ.proizvod }}</td>
+          <td class="align-middle"> {{ podatakJ.tezina }} gr</td>
+          <td class="align-middle"> 
+            <select class="custom-select dropdown-toggle"  [(ngModel)]="podatakJ.tip" (change)="changeTip($event)" disabled>
+                <option *ngFor="let i of tip" [value]=i.id>{{i.naziv}}</option>
+             </select>
+            </td>
+          <td class="align-middle"> {{ podatakJ.cenaKom | currency:"EUR"}}</td>
+          <!-- <td>
+            <button class="btn btn-primary" (click)="openModal(podatakJ)"> Show details</button>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+
+
+    <!-- <div class="card text-center" *ngIf="selectPodatak">
+        <div class="card-header">
+          # {{selektovaniPodatak.id}}
+        </div>
+        <div class="card-block">
+          <h4 class="card-title">{{selektovaniPodatak.ime}}</h4>
+          <p class="card-text">
+            {{selektovaniPodatak.description}}
+          </p>    
+        </div>
+  
+      </div> -->
+  </div>

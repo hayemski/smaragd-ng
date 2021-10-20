@@ -1,0 +1,39 @@
+<div class="modalCont form-horizontal">
+  <div class="row form-group">
+    <label class="  " for="ime">Ime: </label>
+    <input [(ngModel)]="podatak.ime" type="text" name="ime" class="form-control">
+  </div>
+  <div class="row form-group pt-1">
+    <div class="w-100">
+      <label class="control-label" for="datum">Datum:</label>
+    </div>
+    <form class="">
+      <div class="form-group w-100">
+        <div class="input-group w-100">
+          <input class="form-control " placeholder="dd/mm/yyyy" name="d2" #c2="ngModel" [(ngModel)]="datum" ngbDatepicker #d2="ngbDatepicker" (dateSelect)="onDateSelect($event)">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"></button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row form-group">
+    <label class="w-100" for="status">Status:</label>
+    <input #saveUserNameCheckBox class=" form-control auto-width pull-left w-7" id="saveUserNameCheckBox" type="checkbox" [checked]="podatak.status" (change)="onSaveStatusChanged(saveUserNameCheckBox.checked)" name="status" />
+  </div>
+  <div class="row form-group pt-1">
+    <label class="" for="datum">Cena:</label>
+    <input [ngModel]="podatak.cena" type="text" name="cena" class=" form-control">
+  </div>
+  <!-- <input [ngModelOptions]="{standalone: true}" type="text" id="name" [(ngModel)]="service.name" #name> -->
+
+  <div class="row form-group pt-1">
+    <input class="btn btn-primary" type="reset" value="Reset" (click)="cancel()">
+  </div>
+
+
+
+
+
+</div>
